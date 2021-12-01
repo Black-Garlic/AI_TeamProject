@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>교양 수업 추천</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/mdb.min.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/style.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/nanumbarungothic.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    <style type="text/css">
+
+        html, body, header, .carousel {
+          height: 100%;
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+            .navbar:not(.top-nav-collapse) {
+                background: #1C2331!important;
+            }
+        }
+
+        .hangul {
+            font-family: 'Nanum Barun Gothic' !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mask rgba-black-light d-flex justify-content-center align-items-center">
+        <div class="text-center white-text mx-5 wow fadeIn">
+            <h1 class="mb-4">
+                <strong style="font-family: 'Nanum Barun Gothic'">교양 수업 추천</strong>
+            </h1>
+            <p>
+                <strong style="font-family: 'Nanum Barun Gothic'">수강한 교양을 기반으로 교양 수업을 추천합니다</strong>
+            </p>
+
+            <p class="mb-4 d-none d-md-block">
+                <strong>수강한 교양 수업을 선택한 뒤 계산하기 버튼을 눌러주세요</strong>
+            </p>
+
+            <a target="_blank" href="https://github.com/Black-Garlic/AI_TeamProject" class="btn btn-outline-white btn-lg">LET'S GO GITHUB
+                <i class="fa fa-graduation-cap ml-2"></i>
+            </a>
+        </div>
+    </div>
+
+    <main>
+        <div class="container">
+            <hr class="my-5">
+            <section>
+                <h3 class="h3 text-center mb-5" style="font-family: 'Nanum Barun Gothic'">미래 데이터 예측해보기</h3>
+                <div class="row wow fadeIn">
+                    <div class="col-lg-6 col-md-12 px-4">
+                        <form action="/" method="post">
+                            <label id="ICT-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">ICT</label><br>
+                            <div id="ICT-body">
+                                <div class="form-group">
+                                    <label id="ICT-ICT입문-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">ICT 입문</label>
+                                    <ul id="ICT-ICT입문-body">
+                                        <li>소프트웨어 입문  <input type='checkbox' name='ICT-ICT입문' value='0' style='float:right' onclick='changeCredit(0, "ICT-ICT입문")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="ICT-소프트웨어활용-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">소프트웨어 활용</label>
+                                    <ul id="ICT-소프트웨어활용-body">
+                                        <li>오피스 활용  <input type='checkbox' name='ICT-소프트웨어활용' value='0' style='float:right' onclick='changeCredit(1, "ICT-소프트웨어활용")'></li>
+                                        <li>데이터 통계 처리  <input type='checkbox' name='ICT-소프트웨어활용' value='0' style='float:right' onclick='changeCredit(1, "ICT-소프트웨어활용")'></li>
+                                        <li>컴퓨터 그래픽 기초  <input type='checkbox' name='ICT-소프트웨어활용' value='0' style='float:right' onclick='changeCredit(1, "ICT-소프트웨어활용")'></li>
+                                        <li>하이브리드 웹 설계  <input type='checkbox' name='ICT-소프트웨어활용' value='0' style='float:right' onclick='changeCredit(1, "ICT-소프트웨어활용")'></li>
+                                        <li>데이터 수집과 응용  <input type='checkbox' name='ICT-소프트웨어활용' value='0' style='float:right' onclick='changeCredit(1, "ICT-소프트웨어활용")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="ICT-프로그래밍기초-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">프로그래밍 기초</label>
+                                    <ul id="ICT-프로그래밍기초-body">
+                                        <li>앱 프로그래밍  <input type='checkbox' name='ICT-프로그래밍기초' value='0' style='float:right' onclick='changeCredit(2, "ICT-프로그래밍기초")'></li>
+                                        <li>파이썬 프로그래밍  <input type='checkbox' name='ICT-프로그래밍기초' value='1' style='float:right' onclick='changeCredit(2, "ICT-프로그래밍기초")'></li>
+                                        <li>C 프로그래밍  <input type='checkbox' name='ICT-프로그래밍기초' value='2' style='float:right' onclick='changeCredit(2, "ICT-프로그래밍기초")'></li>
+                                        <li>R을 이용한 빅데이터 분석  <input type='checkbox' name='ICT-프로그래밍기초' value='3' style='float:right' onclick='changeCredit(2, "ICT-프로그래밍기초")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="기초학문-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">기초학문</label><br>
+                            <div id="기초학문-body">
+                                <div class="form-group">
+                                    <label id="기초학문-사회과학-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">사회과학</label>
+                                    <ul id="기초학문-사회과학-body">
+                                        <li>교육학개론  <input type='checkbox' name='기초학문-사회과학' value='0' style='float:right' onclick='changeCredit(3, "기초학문-사회과학")'></li>
+                                        <li>글로벌리제이션과 한국의 대중문화  <input type='checkbox' name='기초학문-사회과학' value='1' style='float:right' onclick='changeCredit(3, "기초학문-사회과학")'></li>
+                                        <li>사회학개론  <input type='checkbox' name='기초학문-사회과학' value='2' style='float:right' onclick='changeCredit(3, "기초학문-사회과학")'></li>
+                                        <li>시민생활과 법  <input type='checkbox' name='기초학문-사회과학' value='3' style='float:right' onclick='changeCredit(3, "기초학문-사회과학")'></li>
+                                        <li>통일한국개론  <input type='checkbox' name='기초학문-사회과학' value='4' style='float:right' onclick='changeCredit(3, "기초학문-사회과학")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="기초학문-인문학-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">인문학</label>
+                                    <ul id="기초학문-인문학-body">
+                                        <li>Korean History  <input type='checkbox' name='기초학문-인문학' value='0' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>동양의 역사와 문화  <input type='checkbox' name='기초학문-인문학' value='1' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>서양의 역사와 문화  <input type='checkbox' name='기초학문-인문학' value='2' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>역사와 인간  <input type='checkbox' name='기초학문-인문학' value='3' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>한국사(근현대사)  <input type='checkbox' name='기초학문-인문학' value='4' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>철학개론  <input type='checkbox' name='기초학문-인문학' value='5' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>한국문학의 이해  <input type='checkbox' name='기초학문-인문학' value='6' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>한국의 전통문화  <input type='checkbox' name='기초학문-인문학' value='7' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>한국학개론  <input type='checkbox' name='기초학문-인문학' value='8' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>현대과학과 기술의 철학  <input type='checkbox' name='기초학문-인문학' value='9' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                        <li>한국어학개론  <input type='checkbox' name='기초학문-인문학' value='10' style='float:right' onclick='changeCredit(4, "기초학문-인문학")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="기초학문-자연과학-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">자연과학</label>
+                                    <ul id="기초학문-자연과학-body">
+                                        <li>Calculus 1  <input type='checkbox' name='기초학문-자연과학' value='0' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>Calculus 2  <input type='checkbox' name='기초학문-자연과학' value='1' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>Calculus 3  <input type='checkbox' name='기초학문-자연과학' value='2' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>공학수학  <input type='checkbox' name='기초학문-자연과학' value='3' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>미분방정식과 응용  <input type='checkbox' name='기초학문-자연과학' value='4' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>선형대수학  <input type='checkbox' name='기초학문-자연과학' value='5' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>통계학  <input type='checkbox' name='기초학문-자연과학' value='6' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>물리학 1  <input type='checkbox' name='기초학문-자연과학' value='7' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>물리학 2  <input type='checkbox' name='기초학문-자연과학' value='8' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>물리학 개론  <input type='checkbox' name='기초학문-자연과학' value='9' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>물리학 실험 1  <input type='checkbox' name='기초학문-자연과학' value='10' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>생활 속의 생명과학  <input type='checkbox' name='기초학문-자연과학' value='11' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>일반생물학  <input type='checkbox' name='기초학문-자연과학' value='12' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>일반화학  <input type='checkbox' name='기초학문-자연과학' value='13' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                        <li>일반화학실험  <input type='checkbox' name='기초학문-자연과학' value='14' style='float:right' onclick='changeCredit(5, "기초학문-자연과학")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="리더십및문제해결-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">리더십 및 문제해결</label><br>
+                            <div id="리더십및문제해결-body">
+                                <div class="form-group">
+                                    <label id="리더십및문제해결-리더십-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">리더십</label>
+                                    <ul id="리더십및문제해결-리더십-body">
+                                        <li>대학생을 위한 실용금융  <input type='checkbox' name='리더십및문제해결-리더십' value='0' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>리더십의 이해  <input type='checkbox' name='리더십및문제해결-리더십' value='1' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>비전과 진로탐색  <input type='checkbox' name='리더십및문제해결-리더십' value='2' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>생애진로설계  <input type='checkbox' name='리더십및문제해결-리더십' value='3' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>세계문화의 이해  <input type='checkbox' name='리더십및문제해결-리더십' value='4' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>인간관계와 자기성장  <input type='checkbox' name='리더십및문제해결-리더십' value='5' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>직업과 소명  <input type='checkbox' name='리더십및문제해결-리더십' value='6' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>창의학습  <input type='checkbox' name='리더십및문제해결-리더십' value='7' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>한국수어  <input type='checkbox' name='리더십및문제해결-리더십' value='8' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                        <li>Developing Leadership for a Global World  <input type='checkbox' name='리더십 및 문제해결-리더십' value='9' style='float:right' onclick='changeCredit(6, "리더십및문제해결-리더십")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="세계관-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">세계관</label><br>
+                            <div id="세계관-body">
+                                <div class="form-group">
+                                    <label id="세계관-세계관1-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">세계관 1</label>
+                                    <ul id="세계관-세계관1-body">
+                                        <li>창조와 진화  <input type='checkbox' name='세계관-세계관1' value='0' style='float:right' onclick='changeCredit(7, "세계관-세계관1")'></li>
+                                        <li>기독교세계관  <input type='checkbox' name='세계관-세계관1' value='1' style='float:right' onclick='changeCredit(7, "세계관-세계관1")'></li>
+                                        <li>Mission Perspective  <input type='checkbox' name='세계관-세계관1' value='2' style='float:right' onclick='changeCredit(7, "세계관-세계관1")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="세계관-세계관2-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">세계관 2</label>
+                                    <ul id="세계관-세계관2-body">
+                                        <li>신앙특론  <input type='checkbox' name='세계관-세계관2' value='0' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>교회사의 이해  <input type='checkbox' name='세계관-세계관2' value='1' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>신앙과 학문의 통합  <input type='checkbox' name='세계관-세계관2' value='2' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>기독교 윤리  <input type='checkbox' name='세계관-세계관2' value='3' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>기독교 변증학  <input type='checkbox' name='세계관-세계관2' value='4' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>기독교와 현대사상  <input type='checkbox' name='세계관-세계관2' value='5' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                        <li>현대사회와 선교  <input type='checkbox' name='세계관-세계관2' value='6' style='float:right' onclick='changeCredit(8, "세계관-세계관2")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="소통및융복합-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">소통 및 융복합</label><br>
+                            <div id="소통및융복합-body">
+                                <div class="form-group">
+                                    <label id="소통및융복합-소통-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">소통</label>
+                                    <ul id="소통및융복합-소통-body">
+                                        <li>대학글쓰기 기초  <input type='checkbox' name='소통및융복합-소통' value='0' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>이공계 글쓰기  <input type='checkbox' name='소통및융복합-소통' value='1' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>인문사회계 글쓰기  <input type='checkbox' name='소통및융복합-소통' value='2' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>논리와 비판적 사고  <input type='checkbox' name='소통및융복합-소통' value='3' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>토론과 발표  <input type='checkbox' name='소통및융복합-소통' value='4' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>중국어 1  <input type='checkbox' name='소통및융복합-소통' value='5' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>중국어 2  <input type='checkbox' name='소통및융복합-소통' value='6' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>한국어 5  <input type='checkbox' name='소통및융복합-소통' value='7' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                        <li>한국어 6  <input type='checkbox' name='소통및융복합-소통' value='8' style='float:right' onclick='changeCredit(9, "소통및융복합-소통")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="소통및융복합-융복합-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">융복합</label>
+                                    <ul id="소통및융복합-융복합-body">
+                                        <li>고전강독  <input type='checkbox' name='소통및융복합-융복합' value='0' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>AI 이노베이션  <input type='checkbox' name='소통및융복합-융복합' value='1' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>교양독서  <input type='checkbox' name='소통및융복합-융복합' value='2' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>과학기술과 인간정신  <input type='checkbox' name='소통및융복합-융복합' value='3' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>환경과 인간  <input type='checkbox' name='소통및융복합-융복합' value='4' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>질병과 건강  <input type='checkbox' name='소통및융복합-융복합' value='5' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>현대사회와 여성  <input type='checkbox' name='소통및융복합-융복합' value='6' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                        <li>중국 문화와 언어  <input type='checkbox' name='소통및융복합-융복합' value='7' style='float:right' onclick='changeCredit(10, "소통및융복합-융복합")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="신앙2-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">신앙 2</label><br>
+                            <div id="신앙2-body">
+                                <div class="form-group">
+                                    <label id="신앙2-기독교신앙의기초1-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">기독교 신앙의 기초 1</label>
+                                    <ul id="신앙2-기독교신앙의기초1-body">
+                                        <li>성경의 이해  <input type='checkbox' name='신앙2-기독교신앙의기초1' value='0' style='float:right' onclick='changeCredit(11, "신앙2-기독교신앙의기초1")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="신앙2-기독교신앙의기초2-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">기독교 신앙의 기초 2</label>
+                                    <ul id="신앙2-기독교신앙의기초2-body">
+                                        <li>기독교의 이해  <input type='checkbox' name='신앙2-기독교신앙의기초2' value='0' style='float:right' onclick='changeCredit(12, "신앙2-기독교신앙의기초2")'></li>
+                                        <li>기독교와 포스트 모더니즘  <input type='checkbox' name='신앙2-기독교신앙의기초2' value='1' style='float:right' onclick='changeCredit(12, "신앙2-기독교신앙의기초2")'></li>
+                                        <li>기독교와 비교종교  <input type='checkbox' name='신앙2-기독교신앙의기초2' value='2' style='float:right' onclick='changeCredit(12, "신앙2-기독교신앙의기초2")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="영어-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">영어</label><br>
+                            <div id="영어-body">
+                                <div class="form-group">
+                                    <label id="영어-Level1-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">Level 1</label>
+                                    <ul id="영어-Level1-body">
+                                        <li>English Communication  <input type='checkbox' name='영어-Level1' value='0' style='float:right' onclick='changeCredit(13, "영어-Level1")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="영어-Level2-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">Level 2</label>
+                                    <ul id="영어-Level2-body">
+                                        <li>English Reading and Composition  <input type='checkbox' name='영어-Level2' value='0' style='float:right' onclick='changeCredit(14, "영어-Level2")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="영어-Level3-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">Level 3</label>
+                                    <ul id="영어-Level3-body">
+                                        <li>EAP - Engineering  <input type='checkbox' name='영어-Level3' value='0' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Life Science  <input type='checkbox' name='영어-Level3' value='1' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Management and Economics  <input type='checkbox' name='영어-Level3' value='2' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Counseling Psychology and Social Welfare  <input type='checkbox' name='영어-Level3' value='3' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Communication Arts and Science  <input type='checkbox' name='영어-Level3' value='4' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Contents Convergence Design  <input type='checkbox' name='영어-Level3' value='5' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - International Studies and Law  <input type='checkbox' name='영어-Level3' value='6' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Information Technology  <input type='checkbox' name='영어-Level3' value='7' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                        <li>EAP - Humanities  <input type='checkbox' name='영어-Level3' value='8' style='float:right' onclick='changeCredit(15, "영어-Level3")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="영어-Remedial-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">Remedial</label>
+                                    <ul id="영어-Remedial-body">
+                                        <li>English Foundation  <input type='checkbox' name='영어-Remedial' value='0' style='float:right' onclick='changeCredit(16, "영어-Remedial")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="영어-영어2-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">영어 2</label>
+                                    <ul id="영어-영어2-body">
+                                        <li>English Pre-Course 1  <input type='checkbox' name='영어-영어2' value='0' style='float:right' onclick='changeCredit(17, "영어-영어2")'></li>
+                                        <li>English Pre-Course 2  <input type='checkbox' name='영어-영어2' value='1' style='float:right' onclick='changeCredit(17, "영어-영어2")'></li>
+                                        <li>영작문  <input type='checkbox' name='영어-영어2' value='2' style='float:right' onclick='changeCredit(17, "영어-영어2")'></li>
+                                        <li>Essentials of English Communication  <input type='checkbox' name='영어-영어2' value='3' style='float:right' onclick='changeCredit(17, "영어-영어2")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="예체능-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">예체능</label><br>
+                            <div id="예체능-body">
+                                <div class="form-group">
+                                    <label id="예체능-스포츠-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">스포츠</label>
+                                    <ul id="예체능-스포츠-body">
+                                        <li>생활체육 1  <input type='checkbox' name='예체능-스포츠' value='0' style='float:right' onclick='changeCredit(18, "예체능-스포츠")'></li>
+                                        <li>생활체육 2  <input type='checkbox' name='예체능-스포츠' value='1' style='float:right' onclick='changeCredit(18, "예체능-스포츠")'></li>
+                                    </ul>
+                                </div>
+                                <div class="form-group">
+                                    <label id="예체능-예술-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">예술</label>
+                                    <ul id="예체능-예술-body">
+                                        <li>음악의 이해  <input type='checkbox' name='예체능-예술' value='0' style='float:right' onclick='changeCredit(19, "예체능-예술")'></li>
+                                        <li>미술의 이해  <input type='checkbox' name='예체능-예술' value='1' style='float:right' onclick='changeCredit(19, "예체능-예술")'></li>
+                                        <li>영상의 이해  <input type='checkbox' name='예체능-예술' value='2' style='float:right' onclick='changeCredit(19, "예체능-예술")'></li>
+                                        <li>교회음악 연습  <input type='checkbox' name='예체능-예술' value='3' style='float:right' onclick='changeCredit(19, "예체능-예술")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="외국어-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">외국어</label><br>
+                            <div id="외국어-body">
+                                <div class="form-group">
+                                    <label id="외국어-제2외국어-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">제 2 외국어</label>
+                                    <ul id="외국어-제2외국어-body">
+                                        <li>독일어 1  <input type='checkbox' name='외국어-제2외국어' value='0' style='float:right' onclick='changeCredit(20, "외국어-제2외국어")'></li>
+                                        <li>스페인어 1  <input type='checkbox' name='외국어-제2외국어' value='1' style='float:right' onclick='changeCredit(20, "외국어-제2외국어")'></li>
+                                        <li>일본어 1  <input type='checkbox' name='외국어-제2외국어' value='2' style='float:right' onclick='changeCredit(20, "외국어-제2외국어")'></li>
+                                        <li>일본어 2  <input type='checkbox' name='외국어-제2외국어' value='3' style='float:right' onclick='changeCredit(20, "외국어-제2외국어")'></li>
+                                        <li>히브리어 1  <input type='checkbox' name='외국어-제2외국어' value='4' style='float:right' onclick='changeCredit(20, "외국어-제2외국어")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="전공기초-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">전공기초</label><br>
+                            <div id="전공기초-body">
+                                <div class="form-group">
+                                    <label id="전공기초-전공기초-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">전공기초</label>
+                                    <ul id="전공기초-전공기초-body">
+                                        <li>현대사회와 대중매체  <input type='checkbox' name='전공기초-전공기초' value='0' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>영화의 이해  <input type='checkbox' name='전공기초-전공기초' value='1' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>심리학개론  <input type='checkbox' name='전공기초-전공기초' value='2' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>사회복지개론  <input type='checkbox' name='전공기초-전공기초' value='3' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>공간학 입문  <input type='checkbox' name='전공기초-전공기초' value='4' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>공학설계 입문  <input type='checkbox' name='전공기초-전공기초' value='5' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>공작  <input type='checkbox' name='전공기초-전공기초' value='06' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>모두를 위한 인공지능의 활용  <input type='checkbox' name='전공기초-전공기초' value='7' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>드로잉기초 2  <input type='checkbox' name='전공기초-전공기초' value='8' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>언어학개론  <input type='checkbox' name='전공기초-전공기초' value='9' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>정치학개론  <input type='checkbox' name='전공기초-전공기초' value='10' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>국제관계학입문  <input type='checkbox' name='전공기초-전공기초' value='11' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>법학입문  <input type='checkbox' name='전공기초-전공기초' value='12' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>경제학 입문  <input type='checkbox' name='전공기초-전공기초' value='13' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>경영학 입문  <input type='checkbox' name='전공기초-전공기초' value='14' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>글로벌 기업가정신입문  <input type='checkbox' name='전공기초-전공기초' value='15' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>ICT 융합입문  <input type='checkbox' name='전공기초-전공기초' value='16' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                        <li>Survey of American Law  <input type='checkbox' name='전공기초-전공기초' value='17' style='float:right' onclick='changeCredit(21, "전공기초-전공기초")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <label id="특론및개별연구-title" style="font-family: 'Nanum Barun Gothic'; font-weight:bold" for="formGroupExampleInput">특론 및 개별연구</label><br>
+                            <div id="특론및개별연구-body">
+                                <div class="form-group">
+                                    <label id="특론및개별연구-특론-title" style="font-family: 'Nanum Barun Gothic'" for="formGroupExampleInput">특론</label>
+                                    <ul id="특론및개별연구-특론-body">
+                                        <li>교양특론 2  <input type='checkbox' name='특론및개별연구-특론' value='0' style='float:right' onclick='changeCredit(22, "특론및개별연구-특론")'></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <button style="font-family: 'Nanum Barun Gothic' !important;" type="submit" class="btn btn-primary btn-md pull-right">계산하기</button>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        <p class="h5 text-center mb-4" style="font-family: 'Nanum Barun Gothic'">예측 결과</p>
+                        {% if price %}
+                        <h5 class="text-center mt-3">예측된 가격은 {{ price }}원입니다.</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+        <div class="pt-4">
+            <a class="btn btn-outline-white" href="https://github.com/Black-Garlic/AI_TeamProject" target="_blank" role="button">LET'S GO GITHUB
+                <i class="fa fa-graduation-cap ml-2"></i>
+            </a>
+        </div>
+        <hr class="my-4">
+        <div class="footer-copyright py-3">
+            © 2018 Copyright:
+            <a href="https://blog.naver.com/ndb796" target="_blank"> 나동빈 </a>
+        </div>
+    </footer>
+    
+    <script type="text/javascript">
+        var credit = [
+            0, 0, 0,
+            0, 0, 0,
+            0,
+            0, 0,
+            0, 0,
+            0, 0,
+            0, 0, 0, 0, 0,
+            0, 0,
+            0, 
+            0, 
+            0,
+        ]
+        
+        var topCategory = [
+            "ICT", "ICT", "ICT",
+            "기초학문", "기초학문", "기초학문",
+            "리더십및문제해결",
+            "세계관", "세계관",
+            "소통및융복합", "소통및융복합",
+            "신앙2", "신앙2",
+            "영어", "영어","영어", "영어", "영어",
+            "예체능", "예체능",
+            "외국어",
+            "전공기초",
+            "특론및개별연구",
+        ]
+        
+        var subCategory = [
+            "ICT입문", "소프트웨어활용", "프로그래밍기초",
+            "사회과학", "인문학", "자연과학",
+            "리더십",
+            "세계관1", "세계관2",
+            "소통", "융복합",
+            "기독교신앙의기초1", "기독교신앙의기초2",
+            "Level1", "Level2","Level3", "Remedial", "영어2",
+            "스포츠", "예술",
+            "제2외국어",
+            "전공기초",
+            "특론",
+        ]
+        
+        $(document).ready(function() {
+            $("#ICT-ICT입문-title").text('ICT입문 - ' + credit[0] + ' / 2');
+            $("#ICT-소프트웨어활용-title").text('소프트웨어활용 - ' + credit[1] + ' / 3');
+            $("#ICT-프로그래밍기초-title").text('프로그래밍기초 - ' + credit[2] + ' / 3');
+            $("#기초학문-사회과학-title").text('사회과학 - ' + credit[3] + ' / 2');
+            $("#기초학문-인문학-title").text('인문학 - ' + credit[4] + ' / 2');
+            $("#기초학문-자연과학-title").text('자연과학 - ' + credit[5] + ' / 2');
+            $("#리더십및문제해결-리더십-title").text('리더십 - ' + credit[6] + ' / 2');
+            $("#세계관-세계관1-title").text('세계관1 - ' + credit[7] + ' / 2');
+            $("#세계관-세계관2-title").text('세계관2 - ' + credit[8] + ' / 3');
+            $("#소통및융복합-소통-title").text('소통 - ' + credit[9] + ' / 4');
+            $("#소통및융복합-융복합-title").text('융복합 - ' + credit[10] + ' / 4');
+            $("#신앙2-기독교신앙의기초1-title").text('기독교신앙의기초1 - ' + credit[11] + ' / 2');
+            $("#신앙2-기독교신앙의기초2-title").text('기독교신앙의기초2 - ' + credit[12] + ' / 2');
+            $("#영어-Level1-title").text('Level1 - ' + credit[13] + ' / 3');
+            $("#영어-Level2-title").text('Level2 - ' + credit[14] + ' / 3');
+            $("#영어-Level3-title").text('Level3 - ' + credit[15] + ' / 3');
+            $("#영어-Remedial-title").text('Remedial - ' + credit[16] + ' / 3');
+            $("#영어-영어2-title").text('영어2 - ' + credit[17] + ' / 0');
+            $("#예체능-스포츠-title").text('스포츠 - ' + credit[18] + ' / 0');
+            $("#예체능-예술-title").text('예술 - ' + credit[19] + ' / 0');
+            $("#외국어-제2외국어-title").text('제2외국어 - ' + credit[20] + ' / 0');
+            $("#전공기초-전공기초-title").text('전공기초 - ' + credit[21] + ' / 0');
+            $("#특론및개별연구-특론-title").text('특론 - ' + credit[22] + ' / 0');
+        })
+        
+        $("#ICT-title").click(function() { $("#ICT-body").toggle() })
+        
+        $("#ICT-ICT입문-title").click(function() { $("#ICT-ICT입문-body").toggle() })
+        
+        $("#ICT-소프트웨어활용-title").click(function() { $("#ICT-소프트웨어활용-body").toggle() })
+        
+        $("#ICT-프로그래밍기초-title").click(function() { $("#ICT-프로그래밍기초-body").toggle() })
+        
+        $("#기초학문-title").click(function() { $("#기초학문-body").toggle() })
+        
+        $("#기초학문-사회과학-title").click(function() { $("#기초학문-사회과학-body").toggle() })
+        
+        $("#기초학문-인문학-title").click(function() { $("#기초학문-인문학-body").toggle() })
+        
+        $("#기초학문-자연과학-title").click(function() { $("#기초학문-자연과학-body").toggle() })
+        
+        $("#리더십및문제해결-title").click(function() { $("#리더십및문제해결-body").toggle() })
+        
+        $("#리더십및문제해결-리더십-title").click(function() { $("#리더십및문제해결-리더십-body").toggle() })
+        
+        $("#세계관-title").click(function() { $("#세계관-body").toggle() })
+        
+        $("#세계관-세계관1-title").click(function() { $("#세계관-세계관1-body").toggle() })
+        
+        $("#세계관-세계관2-title").click(function() { $("#세계관-세계관2-body").toggle() })
+        
+        $("#소통및융복합-title").click(function() { $("#소통및융복합-body").toggle() })
+        
+        $("#소통및융복합-소통-title").click(function() { $("#소통및융복합-소통-body").toggle() })
+        
+        $("#소통및융복합-융복합-title").click(function() { $("#소통및융복합-융복합-body").toggle() })
+        
+        $("#신앙2-title").click(function() { $("#신앙2-body").toggle() })
+        
+        $("#신앙2-기독교신앙의기초1-title").click(function() { $("#신앙2-기독교신앙의기초1-body").toggle() })
+        
+        $("#신앙2-기독교신앙의기초2-title").click(function() { $("#신앙2-기독교신앙의기초2-body").toggle() })
+        
+        $("#영어-title").click(function() { $("#영어-body").toggle() })
+        
+        $("#영어-Level1-title").click(function() { $("#영어-Level1-body").toggle() })
+        
+        $("#영어-Level2-title").click(function() { $("#영어-Level2-body").toggle() })
+        
+        $("#영어-Level3-title").click(function() { $("#영어-Level3-body").toggle() })
+        
+        $("#영어-Remedial-title").click(function() { $("#영어-Remedial-body").toggle() })
+        
+        $("#영어-영어2-title").click(function() { $("#영어-영어2-body").toggle() })
+        
+        $("#예체능-title").click(function() { $("#예체능-body").toggle() })
+        
+        $("#예체능-스포츠-title").click(function() { $("#예체능-스포츠-body").toggle() })
+        
+        $("#예체능-예술-title").click(function() { $("#예체능-예술-body").toggle() })
+        
+        $("#외국어-title").click(function() { $("#외국어-body").toggle() })
+        
+        $("#외국어-제2외국어-title").click(function() { $("#외국어-제2외국어-body").toggle() })
+        
+        $("#전공기초-title").click(function() { $("#전공기초-body").toggle() })
+        
+        $("#전공기초-전공기초-title").click(function() { $("#전공기초-전공기초-body").toggle() })
+        
+        $("#특론및개별연구-title").click(function() { $("#특론및개별연구-body").toggle() })
+        
+        $("#특론및개별연구-특론-title").click(function() { $("#특론및개별연구-특론-body").toggle() })
+        
+        function changeCredit(index, name) {
+            console.log(name);
+            var count = 0;
+            for(var i=0; i<document.getElementsByName(name).length; i++) {
+                if(document.getElementsByName(name)[i].checked == true) {
+                    console.log(i);
+                    count++;
+                }
+            }
+            credit[index] = count * 3;
+            console.log("#" + topCategory[index] + "-" + subCategory[index] + "-title")
+            var title = "#" + topCategory[index] + "-" + subCategory[index] + "-title";
+            $(title).text(subCategory[index] + ' - ' + credit[index] + ' / 2');
+        }
+    </script>
+</body>
+
+</html>
